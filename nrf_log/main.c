@@ -71,6 +71,18 @@ int main(void)
 	NRF_LOG_WARNING("This is a warning");
 	NRF_LOG_ERROR("This is an error");
 
+	NRF_LOG_RAW_INFO("Log 1");
+	NRF_LOG_RAW_INFO("Log 2");
+
+	uint32_t x = 100;
+	NRF_LOG_DEBUG("x = %d (0x%x)", x, x);
+
+	double y = 1.23;
+	NRF_LOG_DEBUG("y = " NRF_LOG_FLOAT_MARKER, NRF_LOG_FLOAT(y));
+
+	uint8_t bytes[5] = { 1, 2, 3, 4, 5 };
+	NRF_LOG_HEXDUMP_DEBUG(bytes, 5);
+
     /* Configure board. */
     bsp_board_init(BSP_INIT_LEDS);
 
